@@ -25,7 +25,7 @@ function insertAt<T>(array: T[], index: number, element: T): T[] {
 
 for (let i = 0; i < linkArray.length; i++) {
     if (i % 2 === 0 || i % 5 === 0) {
-        insertAt(linkArray, i, '');
+        insertAt(linkArray, i, 'abcdefghijklmnopqrstuvwxyz'[Math.floor(Math.random() * 26)]);
     }
 }
 
