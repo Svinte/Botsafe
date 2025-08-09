@@ -43,20 +43,10 @@ function botsafeInit(): void {
             return;
         }
 
-        if (reassembleOn !== null) {
+        if (reassembleOn) {
+            element.dataset.botsafeEvent = reassembleOn;
             element.addEventListener(reassembleOn, reassemble);
         }
-
-        // Disable use before reassemble.
-        addEventListener("click", (event) => {
-            event.preventDefault();
-
-            const linkElement = element as HTMLAnchorElement;
-
-            if (!linkElement.href || linkElement.getAttribute("href") === "#") {
-                event.preventDefault();
-            }
-        })
     })
 }
 
@@ -85,6 +75,12 @@ function reassemble(this: HTMLElement, _event: Event): void {
         linkElement.innerText = text;
     } else {
         linkElement.innerText = text;
+    }
+
+    const eventType = this.dataset.botsafeEvent;
+    if (eventType) {
+        this.removeEventListener(eventType, reassemble);
+        delete this.dataset.botsafeEvent;
     }
 
     this.removeAttribute("data-botsafe");
