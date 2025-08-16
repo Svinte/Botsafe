@@ -29,8 +29,6 @@ function isEmail(text: string): boolean {
 function botsafeInit(): void {
     const botsafeElements = document.querySelectorAll(".botsafe");
 
-    console.log(botsafeElements);
-
     // Add reassembler event listener to link.
     botsafeElements.forEach((element) => {
         if (!(element instanceof HTMLAnchorElement)) return;
