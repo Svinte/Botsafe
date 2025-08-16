@@ -51,7 +51,12 @@ function botsafeInit(): void {
 /**
  * Reassemble link content.
  */
-function reassemble(this: HTMLElement, _event: Event): void {
+function reassemble(this: HTMLElement, event: Event): void {
+    if(event.type !== 'synthetic')
+    {
+        event.preventDefault();
+    }
+
     const rawData = this.getAttribute("data-botsafe") || "[]";
     const array = JSON.parse(rawData) as string[];
 
