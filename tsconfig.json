@@ -2,11 +2,12 @@
     "compilerOptions": {
         "target": "ES6",
         "module": "ESNext",
-        "outDir": "./assets",
-        "rootDir": "./assets",
+        "outDir": "./Scripts",
+        "rootDir": "./Scripts",
         "strict": true,
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true
     },
-    "include": ["assets/_botsafe.ts"]
+    "include": ["Scripts/_botsafe.ts"],
+    "exclude": ["node_modules"]
 }
